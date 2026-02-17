@@ -13,6 +13,7 @@ function App() {
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
     const [formStatus, setFormStatus] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // Typing effect
     useEffect(() => {
@@ -150,12 +151,17 @@ function App() {
             <header className="header">
                 <nav className="nav">
                     <h1 className="logo">Aizaz Ahmad Buttah</h1>
-                    <ul className="nav-links">
-                        <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a></li>
-                        <li><a href="#education" className={activeSection === 'education' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>Education</a></li>
-                        <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
-                        <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a></li>
-                        <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a></li>
+                    <button className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+                        <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('about'); setMobileMenuOpen(false); }}>About</a></li>
+                        <li><a href="#education" className={activeSection === 'education' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('education'); setMobileMenuOpen(false); }}>Education</a></li>
+                        <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('skills'); setMobileMenuOpen(false); }}>Skills</a></li>
+                        <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</a></li>
+                        <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</a></li>
                     </ul>
                     <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
                         {theme === 'dark' ? '☀️' : '🌙'}
