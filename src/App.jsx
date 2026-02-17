@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import profileImg from './assets/profile.jpg'
+import faviconImg from './assets/favicon.png'
 
 function App() {
     const [theme, setTheme] = useState('dark');
@@ -150,7 +151,7 @@ function App() {
         <div className="app">
             <header className="header">
                 <nav className="nav">
-                    <h1 className="logo">Aizaz Ahmad Buttah</h1>
+                    <h1 className="logo"><img src={faviconImg} alt="Logo" className="logo-icon" />Aizaz Ahmad Buttah</h1>
                     <button className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
                         <span></span>
                         <span></span>
