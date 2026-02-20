@@ -461,6 +461,47 @@ main {
     font-size: 0.85rem;
 }
 
+/* Project Gallery */
+.project-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--input-bg);
+}
+
+.project-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.project-gallery::-webkit-scrollbar-track {
+    background: var(--input-bg);
+    border-radius: 4px;
+}
+
+.project-gallery::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.project-gallery img {
+    height: 180px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-gallery img:hover {
+    transform: scale(1.03);
+    border-color: var(--primary-color);
+}
+
 /* Contact Section */
 .contact-subtitle {
     text-align: center;

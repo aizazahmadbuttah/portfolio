@@ -2,6 +2,15 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import profileImg from './assets/profile.jpg'
 import faviconImg from './assets/favicon.png'
+import afDashboard from './assets/Aquaflow/dashboard.png'
+import afPOS from './assets/Aquaflow/point of sale.png'
+import afProducts from './assets/Aquaflow/product.png'
+import afInvoices from './assets/Aquaflow/invoices.png'
+import afCategories from './assets/Aquaflow/categories.png'
+import afCloseShop from './assets/Aquaflow/closeshop.png'
+import afCustomers from './assets/Aquaflow/customers.png'
+import afReports from './assets/Aquaflow/prports&analytics.png'
+import afSuppliers from './assets/Aquaflow/suppliers&purchases.png'
 
 function App() {
     const [theme, setTheme] = useState('dark');
@@ -307,6 +316,17 @@ function App() {
                             <div className="project-header">
                                 <h3>AquaFlow Inventory & POS System</h3>
                                 <span className="project-badge">Full Stack Developer</span>
+                            </div>
+                            <div className="project-gallery">
+                                <img src={afDashboard} alt="AquaFlow Dashboard" loading="lazy" />
+                                <img src={afPOS} alt="AquaFlow Point of Sale" loading="lazy" />
+                                <img src={afProducts} alt="AquaFlow Products" loading="lazy" />
+                                <img src={afInvoices} alt="AquaFlow Invoices" loading="lazy" />
+                                <img src={afCategories} alt="AquaFlow Categories" loading="lazy" />
+                                <img src={afCloseShop} alt="AquaFlow Close Shop" loading="lazy" />
+                                <img src={afCustomers} alt="AquaFlow Customers" loading="lazy" />
+                                <img src={afReports} alt="AquaFlow Reports & Analytics" loading="lazy" />
+                                <img src={afSuppliers} alt="AquaFlow Suppliers & Purchases" loading="lazy" />
                             </div>
                             <p className="project-description">
                                 Comprehensive, full-stack Inventory Management and POS system ensuring real-time accurate data handling and actionable insights.
