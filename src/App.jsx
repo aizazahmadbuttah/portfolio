@@ -305,23 +305,24 @@ function App() {
 
                         <div className="project-card">
                             <div className="project-header">
-                                <h3>Inventory Management System</h3>
-                                <span className="project-badge">Client Project</span>
+                                <h3>AquaFlow Inventory & POS System</h3>
+                                <span className="project-badge">Full Stack Developer</span>
                             </div>
                             <p className="project-description">
-                                Full-featured inventory management system for a sanitary shop with dynamic billing capabilities.
+                                Comprehensive, full-stack Inventory Management and POS system ensuring real-time accurate data handling and actionable insights.
                             </p>
                             <ul className="project-highlights">
-                                <li>Built with MEAN stack integrated with MySQL database</li>
-                                <li>Real-time invoice generation and PDF export using jsPDF</li>
-                                <li>Admin panels for stock, customers, and sales management</li>
-                                <li>Secure RESTful API architecture</li>
+                                <li>Intuitive, lightning-fast POS interface with automated PDF invoice generation</li>
+                                <li>Zero-downtime data migration from local SQLite to highly scalable Firebase Firestore</li>
+                                <li>Advanced reporting dashboards utilizing Recharts for inventory and sales trends</li>
+                                <li>Role-based access security using JSON Web Tokens (JWT) and bcrypt hashing</li>
+                                <li>Mobile-first responsive frontend leveraging Tailwind CSS and Redux Toolkit</li>
                             </ul>
                             <div className="project-tech">
-                                <span className="tech-tag">Angular</span>
+                                <span className="tech-tag">React.js</span>
                                 <span className="tech-tag">Node.js</span>
-                                <span className="tech-tag">MySQL</span>
-                                <span className="tech-tag">Express</span>
+                                <span className="tech-tag">Firebase</span>
+                                <span className="tech-tag">Tailwind</span>
                             </div>
                         </div>
 
