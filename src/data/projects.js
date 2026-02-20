@@ -38,16 +38,17 @@ export const projectsData = [
         id: "pneumonia-tb",
         title: "Pneumonia & Tuberculosis Detection",
         badge: "Final Year Project",
-        description: "Developed a deep learning-based system to classify and segment chest X-rays into pneumonia, TB, and normal categories.",
+        description: "A deep learning-based clinical decision support system for the automated detection of Tuberculosis (TB) and Pneumonia from chest X-ray images. This dual-pipeline architecture directly classifies Pneumonia via transfer learning and handles TB through lung segmentation, classification, and severity estimation to reduce diagnostic delays and improve consistency.",
         highlights: [
-            "Implemented CNN and transfer learning with TensorFlow/Keras",
-            "Built UNet segmentation model to highlight regions of interest",
-            "Applied preprocessing: resizing (256×256), normalization, and augmentation",
-            "Integrated web interface for uploading and visualizing results",
-            "Trained models using Google Colab GPU"
+            "Input Verification Module using ResNet50 and cosine similarity to validate X-ray authenticity",
+            "Lung Segmentation using U-Net on custom annotated masks to focus analysis on the lungs",
+            "Novel TB Severity Estimation comparing lesion masks to lung masks for quantitative grading",
+            "High Performance: Pneumonia Classification (DenseNet-121) achieved 96.5% accuracy (0.9972 AUC); TB Classification (Custom CNN) achieved 95% accuracy (0.9184 AUC)",
+            "Trained in a cloud environment (Google Colab GPU) on Kaggle public datasets + custom annotations",
+            "Provides a browser-based user interface for uploading X-rays and viewing predicted disease, confidence scores, and TB severity"
         ],
-        tech: ["Python", "TensorFlow", "Keras", "OpenCV"],
-        images: [] // Add images here later if needed
+        tech: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas"],
+        images: []
     },
     {
         id: "patient-records",
