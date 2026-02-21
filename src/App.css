@@ -379,6 +379,9 @@ main {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    /* Ensures inner gallery doesn't stretch card wider than screen */
+    max-width: 100%;
 }
 
 .project-card:hover {
@@ -399,6 +402,8 @@ main {
     font-size: 1.5rem;
     color: var(--text-color);
     flex: 1;
+    word-break: break-word;
+    /* Prevent long titles from stretching out of bounds */
 }
 
 .project-badge {
@@ -470,6 +475,7 @@ main {
     padding-bottom: 0.8rem;
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) var(--input-bg);
+    width: 100%;
 }
 
 .project-gallery::-webkit-scrollbar {
