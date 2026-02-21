@@ -1272,10 +1272,14 @@ main {
     .project-page-container {
         padding-top: 80px;
         padding-bottom: 30px;
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .project-detail-main {
         padding: 0 1rem;
+        width: 100%;
     }
 
     .project-title-large {
@@ -1305,11 +1309,15 @@ main {
 
     .project-detail-content {
         gap: 2rem;
+        width: 100%;
     }
 
     .project-highlights-box {
         padding: 1.5rem 1rem;
         border-radius: 12px;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .project-highlights-box h2,
@@ -1321,16 +1329,29 @@ main {
     .large-list li {
         font-size: 1rem;
         padding: 0.5rem 0 0.5rem 1.5rem;
+        word-wrap: break-word;
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        /* switching from grid to flex for better pure horizontal constraint on small devices */
+        flex-direction: column;
         gap: 1.5rem;
+        width: 100%;
     }
 
     .gallery-image-wrapper {
         padding: 0.5rem;
         border-radius: 12px;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+
+    .gallery-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 }
 
