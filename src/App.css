@@ -1269,16 +1269,68 @@ main {
 
 /* Responsive adjustments for project page */
 @media (max-width: 768px) {
+    .project-page-container {
+        padding-top: 80px;
+        padding-bottom: 30px;
+    }
+
+    .project-detail-main {
+        padding: 0 1rem;
+    }
+
     .project-title-large {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .project-title-wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    .project-description-large {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+
+    .project-tech-large {
+        gap: 0.5rem;
+    }
+
+    .large-tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .project-detail-content {
+        gap: 2rem;
+    }
+
+    .project-highlights-box {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .project-highlights-box h2,
+    .project-full-gallery h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .large-list li {
+        font-size: 1rem;
+        padding: 0.5rem 0 0.5rem 1.5rem;
     }
 
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .project-highlights-box {
-        padding: 2rem;
+    .gallery-image-wrapper {
+        padding: 0.5rem;
+        border-radius: 12px;
     }
 }
 
