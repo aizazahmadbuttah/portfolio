@@ -8,6 +8,17 @@ import afCustomers from '../assets/Aquaflow/customers.png'
 import afReports from '../assets/Aquaflow/prports&analytics.png'
 import afSuppliers from '../assets/Aquaflow/suppliers&purchases.png'
 
+// FYP Screenshots
+import fypMain from '../assets/FYP/main_page.jpg'
+import fypPneumoniaPage from '../assets/FYP/pneumonia_page.jpg'
+import fypTBPage from '../assets/FYP/tb_page.jpg'
+import fypPneumoniaResult from '../assets/FYP/pneumonia_result.jpg'
+import fypTBNormal from '../assets/FYP/tb normal.jpg'
+import fypModelLayers from '../assets/FYP/classfication model layers.jpg'
+import fypRocCurve from '../assets/FYP/roc curve tb.jpg'
+import fypConfusionMatrix from '../assets/FYP/pneumonia_confussion_matrix.jpg'
+import fypAccuracy from '../assets/FYP/model_accuracy.jpg'
+
 export const projectsData = [
     {
         id: "aquaflow",
@@ -48,7 +59,17 @@ export const projectsData = [
             "Provides a browser-based user interface for uploading X-rays and viewing predicted disease, confidence scores, and TB severity"
         ],
         tech: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas"],
-        images: []
+        images: [
+            { src: fypMain, alt: "System Main Page" },
+            { src: fypPneumoniaPage, alt: "Pneumonia Detection Interface" },
+            { src: fypPneumoniaResult, alt: "Pneumonia Prediction Result" },
+            { src: fypTBPage, alt: "Tuberculosis Detection Interface" },
+            { src: fypTBNormal, alt: "TB Normal Prediction Result" },
+            { src: fypModelLayers, alt: "Classification Model Architecture" },
+            { src: fypRocCurve, alt: "TB ROC Curve (AUC)" },
+            { src: fypConfusionMatrix, alt: "Pneumonia Confusion Matrix" },
+            { src: fypAccuracy, alt: "Model Training Accuracy" }
+        ]
     },
     {
         id: "patient-records",
