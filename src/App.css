@@ -489,9 +489,13 @@ main {
 .project-gallery img {
     height: 180px;
     width: auto;
+    max-width: none;
+    /* crucial for horizontal overflow without compression */
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    object-fit: cover;
+    background: var(--bg-color);
+    object-fit: contain;
+    /* show whole image without cropping */
     flex-shrink: 0;
     transition: transform 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -983,6 +987,10 @@ main {
 
     .project-card h3 {
         font-size: 1.3rem;
+    }
+
+    .project-gallery img {
+        height: 140px;
     }
 
     /* Contact */
