@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { projectsData } from '../data/projects';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile.png';
 import faviconImg from '../assets/favicon.png';
 
 function HomePage() {

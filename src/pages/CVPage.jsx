@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projects';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile.png';
 import './CVPage.css';
 
 function CVPage() {
