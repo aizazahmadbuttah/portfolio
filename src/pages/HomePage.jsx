@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import toast from 'react-hot-toast';
 import { projectsData } from '../data/projects';
 import profileImg from '../assets/profile.jpg';
 import faviconImg from '../assets/favicon.png';
@@ -11,8 +13,11 @@ function HomePage() {
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-    const [formStatus, setFormStatus] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Project filtering
+    const [filter, setFilter] = useState('All');
+    const categories = ['All', 'Full Stack Developer', 'Final Year Project', 'In Progress', 'Research'];
 
     // Typing effect
     useEffect(() => {
@@ -62,24 +67,6 @@ function HomePage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Intersection Observer
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        return () => {
-            hiddenElements.forEach((el) => observer.unobserve(el));
-        };
-    }, []);
-
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
@@ -93,12 +80,11 @@ function HomePage() {
         e.preventDefault();
         const { name, email, subject, message } = formData;
         if (!name || !email || !message) {
-            setFormStatus('error');
+            toast.error('Please fill in all required fields.');
             return;
         }
 
         setIsSubmitting(true);
-        setFormStatus('');
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -116,21 +102,25 @@ function HomePage() {
 
             const result = await response.json();
             if (result.success) {
-                setFormStatus('success');
+                toast.success('Message sent successfully! I\'ll get back to you soon.');
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
-                setFormStatus('api_error');
+                toast.error('Something went wrong. Please try again or email me.');
             }
         } catch {
-            setFormStatus('api_error');
+            toast.error('Network error. Please try again later.');
         } finally {
             setIsSubmitting(false);
-            setTimeout(() => setFormStatus(''), 5000);
         }
     };
 
     return (
-        <main>
+        <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+        >
             <section className="hero">
                 <div className="hero-content">
                     <div className="profile-img-container">
@@ -143,11 +133,21 @@ function HomePage() {
                     <p className="hero-description">
                         Passionate Computer Science student specializing in Artificial Intelligence, Machine Learning, and Modern Web Development
                     </p>
-                    <button className="cta-button" onClick={() => scrollToSection('projects')}>View My Work</button>
+                    <div className="hero-buttons">
+                        <button className="cta-button" onClick={() => scrollToSection('projects')}>View My Work</button>
+                        <button className="hire-me-btn" onClick={() => scrollToSection('contact')}>Hire Me</button>
+                    </div>
                 </div>
             </section>
 
-            <section id="about" className="section hidden">
+            <motion.section
+                id="about"
+                className="section"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <h2 className="section-title">About Me</h2>
                 <p className="section-content">
                     I'm a detail-oriented Computer Science undergraduate from Government College University, Lahore, with strong expertise in
@@ -156,18 +156,38 @@ function HomePage() {
                     With proficiency in Python, TensorFlow, and React.js, I excel at integrating AI models into real-world software solutions.
                     I'm eager to contribute to professional environments that value innovation, collaboration, and clean engineering practices.
                 </p>
-            </section>
+            </motion.section>
 
-            <section id="education" className="section hidden">
-                <h2 className="section-title">Education</h2>
-                <div className="education-card">
-                    <h3>BS, Computer Science</h3>
-                    <p className="institution">Government College University, Lahore, Pakistan</p>
-                    <p className="duration">2021 – 2025</p>
+            <motion.section
+                id="education"
+                className="section"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
+                <h2 className="section-title">Timeline</h2>
+                <div className="timeline-container">
+                    <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-content">
+                            <h3>BS, Computer Science</h3>
+                            <p className="institution">Government College University, Lahore, Pakistan</p>
+                            <p className="duration">2021 – 2025</p>
+                            <p className="timeline-desc">Specialized in Artificial Intelligence, Machine Learning, and Modern Web Development. Actively developed full-stack applications and deep learning research projects.</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section id="skills" className="section hidden">
+            <motion.section
+                id="skills"
+                className="section"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <h2 className="section-title">Skills</h2>
                 <div className="skills-grid">
                     <div className="skill-category">
@@ -213,47 +233,84 @@ function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section id="projects" className="section hidden">
+            <motion.section
+                id="projects"
+                className="section"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <h2 className="section-title">Projects</h2>
-                <div className="projects-grid">
-                    {projectsData.map((project) => (
-                        <div key={project.id} className="project-card">
-                            <div className="project-header">
-                                <h3>{project.title}</h3>
-                                <span className={`project-badge ${project.badgeClass || ''}`}>{project.badge}</span>
-                            </div>
 
-                            {project.images && project.images.length > 0 && (
-                                <div className="project-gallery">
-                                    {project.images.slice(0, 4).map((img, idx) => (
-                                        <img key={idx} src={img.src} alt={img.alt} loading="lazy" />
-                                    ))}
-                                </div>
-                            )}
-
-                            <p className="project-description">
-                                {project.description}
-                            </p>
-
-                            <div className="project-actions">
-                                <Link to={`/project/${project.id}`} className="view-project-btn">
-                                    View Details <span>→</span>
-                                </Link>
-                            </div>
-
-                            <div className="project-tech">
-                                {project.tech.map((tech, idx) => (
-                                    <span key={idx} className="tech-tag">{tech}</span>
-                                ))}
-                            </div>
-                        </div>
+                <div className="project-filters">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                            onClick={() => setFilter(cat)}
+                        >
+                            {cat}
+                        </button>
                     ))}
                 </div>
-            </section>
 
-            <section id="contact" className="section hidden">
+                <motion.div layout className="projects-grid">
+                    <AnimatePresence>
+                        {projectsData.filter(p => filter === 'All' || p.badge === filter).map((project) => (
+                            <motion.div
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.3 }}
+                                key={project.id}
+                                className="project-card"
+                            >
+                                <div className="project-header">
+                                    <h3>{project.title}</h3>
+                                    <span className={`project-badge ${project.badgeClass || ''}`}>{project.badge}</span>
+                                </div>
+
+                                {project.images && project.images.length > 0 && (
+                                    <div className="project-gallery">
+                                        {project.images.slice(0, 4).map((img, idx) => (
+                                            <img key={idx} src={img.src} alt={img.alt} loading="lazy" />
+                                        ))}
+                                    </div>
+                                )}
+
+                                <p className="project-description">
+                                    {project.description}
+                                </p>
+
+                                <div className="project-actions">
+                                    <Link to={`/project/${project.id}`} className="view-project-btn">
+                                        View Details <span>→</span>
+                                    </Link>
+                                </div>
+
+                                <div className="project-tech">
+                                    {project.tech.map((tech, idx) => (
+                                        <span key={idx} className="tech-tag">{tech}</span>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+            </motion.section>
+
+            <motion.section
+                id="contact"
+                className="section"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <h2 className="section-title">Get In Touch</h2>
                 <p className="contact-subtitle">Have a project in mind or want to collaborate? I'd love to hear from you!</p>
                 <div className="contact-wrapper">
@@ -291,9 +348,6 @@ function HomePage() {
                                     </>
                                 )}
                             </button>
-                            {formStatus === 'success' && <p className="form-feedback success">✅ Message sent successfully! I'll get back to you soon.</p>}
-                            {formStatus === 'error' && <p className="form-feedback error">❌ Please fill in all required fields.</p>}
-                            {formStatus === 'api_error' && <p className="form-feedback error">❌ Something went wrong. Please try again or email me directly.</p>}
                         </form>
                     </div>
                     <div className="contact-info-panel">
@@ -337,8 +391,8 @@ function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </motion.section>
+        </motion.main>
     );
 }
 

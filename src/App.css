@@ -50,6 +50,11 @@
     align-items: center;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -254,6 +259,78 @@ main {
     transform: translateY(-1px);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hire-me-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--secondary-color), #db2777);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.hire-me-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(236, 72, 153, 0.4);
+}
+
+.hire-me-btn:active {
+    transform: translateY(-1px);
+}
+
+.hire-me-nav-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.hire-me-nav-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+}
+
+.hire-me-nav-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Make sure mobile menu doesn't break the new nav-actions */
+@media (max-width: 768px) {
+    .nav-actions {
+        margin-right: 3rem;
+        /* Space for hamburger menu */
+    }
+
+    .hire-me-nav-btn {
+        display: none;
+        /* Might want to hide on very small screens, or adjust size */
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+}
+
+
 /* Sections */
 .section {
     max-width: 1200px;
@@ -307,6 +384,85 @@ main {
 
 .education-card .duration {
     color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Timeline Section (Replaces old block card) */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.82rem;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border: 3px solid var(--bg-color);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+.timeline-content .institution {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.timeline-content .duration {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-desc {
+    color: var(--text-muted);
+    line-height: 1.6;
     font-size: 1rem;
 }
 
@@ -382,6 +538,39 @@ main {
     min-width: 0;
     /* Ensures inner gallery doesn't stretch card wider than screen */
     max-width: 100%;
+}
+
+/* Project Filters */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
 .project-card:hover {
