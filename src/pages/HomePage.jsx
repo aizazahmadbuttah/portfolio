@@ -180,7 +180,7 @@ function HomePage() {
                             <br /><br />
                             My work spans <span className="underline-dark">React.js frontends</span>, .NET Core APIs, SQL Server databases, and deep learning pipelines. I've built tools for real businesses — a POS system that replaced manual billing for a water supply company, and a clinical AI system trained to detect pneumonia and TB from chest X-rays.
                             <br /><br />
-                            I write code that's meant to be <strong style={{color:'var(--primary-color)'}}>maintained</strong>, not just submitted. I care about clean architecture, sensible component design, and making sure things actually work for the people using them.
+                            I write code that's meant to be <strong className="underline-dark">maintained</strong>, not just submitted. I care about clean architecture, sensible component design, and making sure things actually work for the people using them.
                         </p>
                         <div className="about-stats-row">
                             <div className="about-stat">
