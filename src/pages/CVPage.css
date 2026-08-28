@@ -179,6 +179,20 @@
     font-style: italic;
 }
 
+.cv-item-tech {
+    font-size: 0.85rem;
+    color: #4f46e5;
+    font-weight: 500;
+    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cv-skill-group em {
+    color: #6b7280;
+    font-size: 0.9em;
+}
+
 /* Print Styles */
 @media print {
     @page {

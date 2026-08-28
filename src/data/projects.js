@@ -21,44 +21,61 @@ import fypAccuracy from '../assets/FYP/model_accuracy.jpg'
 
 export const projectsData = [
     {
-        id: "aquaflow",
-        title: "AquaFlow Inventory & POS System",
-        badge: "Full Stack Developer",
-        description: "Comprehensive, full-stack Inventory Management and POS system ensuring real-time accurate data handling and actionable insights.",
+        id: "patient-records",
+        title: "PATIENT RECORDS SYSTEM",
+        badge: "Full Stack",
+        description: "A full-stack web application to manage patient data securely, built with React.js on the frontend and .NET Core Web API on the backend.",
         highlights: [
-            "Intuitive, lightning-fast POS interface with automated PDF invoice generation",
-            "Zero-downtime data migration from local SQLite to highly scalable Firebase Firestore",
-            "Advanced reporting dashboards utilizing Recharts for inventory and sales trends",
-            "Role-based access security using JSON Web Tokens (JWT) and bcrypt hashing",
-            "Mobile-first responsive frontend leveraging Tailwind CSS and Redux Toolkit"
+            "Developed a responsive, form-based UI in React for patient intake, data editing, and record retrieval",
+            "Built a RESTful backend using .NET Core Web API with secure user authentication",
+            "Managed patient data using SQL Server with standard healthcare security practices",
+            "Hosted and tested locally via Visual Studio and IIS"
         ],
-        tech: ["React.js", "Node.js", "Firebase", "Tailwind"],
-        images: [
-            { src: afDashboard, alt: "AquaFlow Dashboard" },
-            { src: afPOS, alt: "AquaFlow Point of Sale" },
-            { src: afProducts, alt: "AquaFlow Products" },
-            { src: afInvoices, alt: "AquaFlow Invoices" },
-            { src: afCategories, alt: "AquaFlow Categories" },
-            { src: afCloseShop, alt: "AquaFlow Close Shop" },
-            { src: afCustomers, alt: "AquaFlow Customers" },
-            { src: afReports, alt: "AquaFlow Reports & Analytics" },
-            { src: afSuppliers, alt: "AquaFlow Suppliers & Purchases" }
-        ]
+        tech: ["React.js", ".NET Core", "SQL Server", "REST API"],
+        images: []
+    },
+    {
+        id: "health-consultant",
+        title: "HEALTH CONSULTANT APP",
+        badge: "Frontend",
+        description: "Frontend of a responsive health consultation web app, focused on an intuitive user experience and solid cross-browser performance.",
+        highlights: [
+            "Built modular, reusable components for Home, Contact Us, Team, and dynamic health service pages",
+            "Handled API integrations to display dynamic health service data and process user inquiries",
+            "Prioritized high cross-browser compatibility and a clean, accessible layout",
+            "Implemented a consistent design system using vanilla CSS across all pages"
+        ],
+        tech: ["React.js", "CSS", "REST APIs"],
+        images: []
+    },
+    {
+        id: "task-management",
+        title: "TASK MANAGEMENT BOARD",
+        badge: "Full Stack",
+        description: "A drag-and-drop Kanban board for creating, organizing, and tracking daily tasks and project milestones, with real-time Firebase sync.",
+        highlights: [
+            "Implemented drag-and-drop functionality allowing users to move tasks across different status columns",
+            "Used React Context API for state management across nested components — no prop drilling",
+            "Integrated Firebase Realtime Database for live data sync across sessions",
+            "Added secure user authentication so each user has their own private board"
+        ],
+        tech: ["React.js", "Firebase", "Context API"],
+        images: []
     },
     {
         id: "pneumonia-tb",
-        title: "Pneumonia & Tuberculosis Detection",
-        badge: "Final Year Project",
-        description: "A deep learning-based clinical decision support system for the automated detection of Tuberculosis (TB) and Pneumonia from chest X-ray images. This dual-pipeline architecture directly classifies Pneumonia via transfer learning and handles TB through lung segmentation, classification, and severity estimation to reduce diagnostic delays and improve consistency.",
+        title: "PNEUMONIA & TB DETECTION",
+        badge: "AI / ML",
+        badgeClass: "fyp",
+        description: "Final Year Project — an AI system that classifies and segments chest X-rays into pneumonia, TB, and normal categories using custom-trained deep learning models.",
         highlights: [
-            "Input Verification Module using ResNet50 and cosine similarity to validate X-ray authenticity",
-            "Lung Segmentation using U-Net on custom annotated masks to focus analysis on the lungs",
-            "Novel TB Severity Estimation comparing lesion masks to lung masks for quantitative grading",
-            "High Performance: Pneumonia Classification (DenseNet-121) achieved 96.5% accuracy (0.9972 AUC); TB Classification (Custom CNN) achieved 95% accuracy (0.9184 AUC)",
-            "Trained in a cloud environment (Google Colab GPU) on Kaggle public datasets + custom annotations",
-            "Provides a browser-based user interface for uploading X-rays and viewing predicted disease, confidence scores, and TB severity"
+            "Trained DenseNet-121 for pneumonia classification (96.5% accuracy, 0.9972 AUC) and a custom CNN for TB (95% accuracy, 0.9184 AUC)",
+            "Built a lung segmentation pipeline using U-Net on custom annotated masks",
+            "Added an Input Verification Module using ResNet50 and cosine similarity to confirm X-ray authenticity",
+            "Designed a React.js frontend for file uploads and displaying diagnosis results with confidence scores",
+            "Trained on Google Colab using Kaggle public datasets and custom annotations"
         ],
-        tech: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas"],
+        tech: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas", "React.js"],
         images: [
             { src: fypMain, alt: "System Main Page" },
             { src: fypPneumoniaPage, alt: "Pneumonia Detection Interface" },
@@ -72,31 +89,28 @@ export const projectsData = [
         ]
     },
     {
-        id: "patient-records",
-        title: "Patient Records Management System",
-        badge: "In Progress",
-        badgeClass: "in-progress",
-        description: "Full-stack web application for managing patient data securely with modern healthcare standards.",
+        id: "aquaflow",
+        title: "AQUAFLOW POS",
+        badge: "Full Stack",
+        description: "Inventory management and point-of-sale system built for a water supply business — handles billing, stock, customers, and reporting.",
         highlights: [
-            "RESTful backend with authentication using .NET Core Web API",
-            "Responsive React.js UI for patient intake and editing",
-            "SQL Server database with secure data handling",
-            "Follows healthcare security and scalability standards"
+            "Fast POS interface with automated PDF invoice generation",
+            "Advanced reporting dashboards with Recharts for inventory and sales trends",
+            "Role-based access control using JWT authentication and bcrypt password hashing",
+            "Migrated data from local SQLite to Firebase Firestore for scalability",
+            "Responsive frontend built with Tailwind CSS and Redux Toolkit"
         ],
-        tech: ["React.js", ".NET Core", "SQL Server", "REST API"],
-        images: []
-    },
-    {
-        id: "ai-optimization",
-        title: "AI Model Optimization & Research",
-        badge: "Research",
-        description: "Experimented with various architectures to improve segmentation performance and model generalization.",
-        highlights: [
-            "Tested SegNet, UNet, and Custom CNNs",
-            "Fine-tuned pretrained models and optimized hyperparameters",
-            "Analyzed results to reduce overfitting"
-        ],
-        tech: ["Deep Learning", "Model Optimization", "Research"],
-        images: []
+        tech: ["React.js", "Node.js", "Firebase", "Tailwind CSS"],
+        images: [
+            { src: afDashboard, alt: "AquaFlow Dashboard" },
+            { src: afPOS, alt: "AquaFlow Point of Sale" },
+            { src: afProducts, alt: "AquaFlow Products" },
+            { src: afInvoices, alt: "AquaFlow Invoices" },
+            { src: afCategories, alt: "AquaFlow Categories" },
+            { src: afCloseShop, alt: "AquaFlow Close Shop" },
+            { src: afCustomers, alt: "AquaFlow Customers" },
+            { src: afReports, alt: "AquaFlow Reports & Analytics" },
+            { src: afSuppliers, alt: "AquaFlow Suppliers & Purchases" }
+        ]
     }
 ];
