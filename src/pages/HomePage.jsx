@@ -83,6 +83,15 @@ function HomePage() {
         }
     };
 
+    const techStack = [
+        { name: 'React.js', color: '#61DAFB' },
+        { name: '.NET Core', color: '#512BD4' },
+        { name: 'SQL Server', color: '#CC2927' },
+        { name: 'Firebase', color: '#FFA000' },
+        { name: 'TensorFlow', color: '#FF6F00' },
+        { name: 'Python', color: '#3776AB' },
+    ];
+
     return (
         <motion.main
             initial={{ opacity: 0 }}
@@ -90,9 +99,16 @@ function HomePage() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >
+            {/* ─── HERO ─── */}
             <section className="hero" id="home">
                 <div className="hero-content">
-                    <div className="hero-tag">CS GRADUATE · GCU LAHORE</div>
+                    <div className="hero-tag-row">
+                        <div className="hero-tag">FULL-STACK DEVELOPER</div>
+                        <div className="hero-tag open-to-work-tag">
+                            <span className="otw-dot" />
+                            OPEN TO WORK
+                        </div>
+                    </div>
                     <h1 className="hero-title">
                         DIGITAL<br />
                         <span className="neon-text">ENGINEER</span>
@@ -100,8 +116,17 @@ function HomePage() {
 
                     <div className="hero-description-box">
                         <p className="hero-description">
-                            Hi, I'm Aizaz. I build <strong className="hero-bold">clean</strong>, responsive web apps with React.js and enjoy turning complex problems into <strong className="hero-bold">straightforward</strong> solutions.
+                            I'm a full-stack developer who builds <strong className="hero-bold">production-ready</strong> web apps — and has shipped a clinical AI system that classifies chest X-rays with <strong className="hero-bold">96.5% accuracy</strong>. I bring engineering rigour to every layer of the stack.
                         </p>
+                    </div>
+
+                    {/* Tech strip */}
+                    <div className="hero-tech-strip">
+                        {techStack.map((t) => (
+                            <span key={t.name} className="hero-tech-pill" style={{ borderColor: t.color + '55', color: t.color }}>
+                                {t.name}
+                            </span>
+                        ))}
                     </div>
 
                     <div className="hero-buttons">
@@ -111,7 +136,16 @@ function HomePage() {
                             </button>
                         </div>
                         <div className="button-wrapper secondary">
-                            <button className="hire-me-btn" onClick={() => scrollToSection('contact')}>
+                            <a
+                                href="/portfolio/Aizaz_resume.pdf"
+                                download="Aizaz_Ahmad_Buttah_CV.pdf"
+                                className="hire-me-btn download-cv-btn"
+                            >
+                                DOWNLOAD CV ↓
+                            </a>
+                        </div>
+                        <div className="button-wrapper">
+                            <button className="ghost-btn" onClick={() => scrollToSection('contact')}>
                                 GET IN TOUCH
                             </button>
                         </div>
@@ -129,6 +163,7 @@ function HomePage() {
                 </div>
             </section>
 
+            {/* ─── ABOUT ─── */}
             <motion.section
                 id="about"
                 className="section brutalist-panel about-section"
@@ -139,14 +174,33 @@ function HomePage() {
             >
                 <div className="about-content-wrapper">
                     <h2 className="section-title">THE<br />MISSION</h2>
-                    <p className="section-content">
-                        Computer Science graduate from <span className="highlight-dark">GCU Lahore</span>, with a solid foundation in software development and a growing focus on React.js and modern web technologies.
-                        <br /><br />
-                        I have hands-on experience building <span className="underline-dark">full-stack applications</span> and responsive interfaces. My background in machine learning gives me a strong analytical mindset — I care about writing clean, maintainable code that actually works in the real world.
-                    </p>
+                    <div className="about-body">
+                        <p className="section-content">
+                            CS graduate from <span className="highlight-dark">GCU Lahore</span> with hands-on experience across the full stack and a deep background in applied AI.
+                            <br /><br />
+                            My work spans <span className="underline-dark">React.js frontends</span>, .NET Core APIs, SQL Server databases, and deep learning pipelines. I've built tools for real businesses — a POS system that replaced manual billing for a water supply company, and a clinical AI system trained to detect pneumonia and TB from chest X-rays.
+                            <br /><br />
+                            I write code that's meant to be <strong style={{color:'var(--primary-color)'}}>maintained</strong>, not just submitted. I care about clean architecture, sensible component design, and making sure things actually work for the people using them.
+                        </p>
+                        <div className="about-stats-row">
+                            <div className="about-stat">
+                                <span className="about-stat-num">5+</span>
+                                <span className="about-stat-label">Projects Shipped</span>
+                            </div>
+                            <div className="about-stat">
+                                <span className="about-stat-num">96.5%</span>
+                                <span className="about-stat-label">AI Model Accuracy</span>
+                            </div>
+                            <div className="about-stat">
+                                <span className="about-stat-num">4+</span>
+                                <span className="about-stat-label">Tech Stacks</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </motion.section>
 
+            {/* ─── EDUCATION ─── */}
             <motion.section
                 id="education"
                 className="section"
@@ -169,6 +223,7 @@ function HomePage() {
                 </div>
             </motion.section>
 
+            {/* ─── SKILLS ─── */}
             <motion.section
                 id="skills"
                 className="section"
@@ -225,7 +280,7 @@ function HomePage() {
                         <div className="skill-num-row">
                             <span className="skill-num skill-num--primary">04</span>
                         </div>
-                        <h3>AI & ML <span style={{fontSize: '0.7em', opacity: 0.6}}>(Academic)</span></h3>
+                        <h3>AI & Machine Learning</h3>
                         <div className="skill-tags">
                             <span className="skill-tag">TensorFlow</span>
                             <span className="skill-tag">Keras</span>
@@ -237,6 +292,7 @@ function HomePage() {
                 </div>
             </motion.section>
 
+            {/* ─── PROJECTS ─── */}
             <motion.section
                 id="projects"
                 className="section gallery-section"
@@ -292,6 +348,11 @@ function HomePage() {
                                     {/* Number index */}
                                     <span className="card-index">0{index + 1}</span>
 
+                                    {/* Stat badge for FYP */}
+                                    {project.stat && (
+                                        <span className="card-stat-badge">{project.stat}</span>
+                                    )}
+
                                     {/* Badge */}
                                     <span className={`project-badge card-badge ${project.badgeClass || ''}`}>{project.badge}</span>
                                 </div>
@@ -300,11 +361,18 @@ function HomePage() {
                                 <div className="card-body">
                                     <div className="card-title-row">
                                         <h3 className="card-title">{project.title}</h3>
-                                        <Link to={`/project/${project.id}`} className="card-arrow-btn" aria-label={`View ${project.title}`}>
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                                                <path d="M7 17L17 7M17 7H7M17 7v10" />
-                                            </svg>
-                                        </Link>
+                                        <div className="card-actions">
+                                            {project.githubUrl && (
+                                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card-github-btn" aria-label="View source on GitHub" title="View source on GitHub">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                                </a>
+                                            )}
+                                            <Link to={`/project/${project.id}`} className="card-arrow-btn" aria-label={`View ${project.title}`}>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                                </svg>
+                                            </Link>
+                                        </div>
                                     </div>
 
                                     <p className="card-description">{project.description}</p>
@@ -327,6 +395,7 @@ function HomePage() {
             </motion.section>
 
 
+            {/* ─── CONTACT ─── */}
             <motion.section
                 id="contact"
                 className="section contact-section-wrapper"
@@ -339,7 +408,7 @@ function HomePage() {
                     <div className="contact-heading-wrapper">
                         <h2 className="section-title contact-section-title">LET'S<br /><span className="contact-span">CONNECT.</span></h2>
                     </div>
-                    <p className="contact-subtitle">Open to job opportunities, freelance work, or just a good conversation about tech.</p>
+                    <p className="contact-subtitle">Open to full-time roles, freelance projects, or just a good conversation about tech.</p>
                     <div className="contact-wrapper">
                         <div className="contact-form-container">
                             <h3 className="contact-form-title">Send Me a Message</h3>
