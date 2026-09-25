@@ -446,7 +446,7 @@ function HomePage() {
                             </form>
                         </div>
                         <div className="contact-info-panel">
-                            <div className="contact-details" style={{ marginTop: '2rem' }}>
+                            <div className="contact-details">
                                 <a href="mailto:aizazahmadbuttah@gmail.com" className="contact-detail-item">
                                     <div className="contact-detail-icon">📧</div>
                                     <div className="contact-detail-text">

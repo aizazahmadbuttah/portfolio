@@ -375,7 +375,7 @@ main {
 /* Ghost button (3rd hero button) */
 .ghost-btn {
     background: transparent;
-    color: var(--text-muted);
+    color: #111;
     border: none;
     padding: 0;
     font-family: var(--font-body);
@@ -391,7 +391,7 @@ main {
 }
 
 .ghost-btn:hover {
-    color: var(--text-color);
+    color: #000;
 }
 
 .button-wrapper {
@@ -1577,6 +1577,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
 .contact-detail-item {
