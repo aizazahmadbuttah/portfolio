@@ -184,7 +184,7 @@ function HomePage() {
                         </p>
                         <div className="about-stats-row">
                             <div className="about-stat">
-                                <span className="about-stat-num">5+</span>
+                                <span className="about-stat-num">8+</span>
                                 <span className="about-stat-label">Projects Shipped</span>
                             </div>
                             <div className="about-stat">

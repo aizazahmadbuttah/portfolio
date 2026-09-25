@@ -221,20 +221,28 @@ main {
 
 @media (max-width: 600px) {
     .nav {
-        padding: 0 2rem;
+        padding: 0 1.2rem;
     }
 
-    .nav-links {
-        display: none;
-        /* Can be toggle based, just hiding for overlap */
+    /* NOTE: .nav-links display is managed by the 768px block — do NOT override here */
+
+    .hero {
+        overflow-x: hidden;
     }
 
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
-    .button-wrapper button {
+    .button-wrapper {
+        width: 100%;
+        display: flex;
+    }
+
+    .button-wrapper button,
+    .button-wrapper .download-cv-btn {
         width: 100%;
         justify-content: center;
     }
@@ -389,10 +397,16 @@ main {
 .button-wrapper {
     border: 2px solid #fff;
     display: inline-block;
-    background: transparent;
+    background: #fff;
+    box-shadow: 5px 5px 0 0 rgba(255,255,255,0.3);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Download CV button — same brutalist style as secondary but neon accent */
+.button-wrapper:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 rgba(255,255,255,0.3);
+}
+
 .download-cv-btn {
     display: flex;
     align-items: center;
@@ -405,18 +419,19 @@ main {
     color: var(--primary-color) !important;
     border: none;
     cursor: pointer;
-    transform: translate(-6px, -6px);
-    transition: transform 0.2s ease;
+    transition: background 0.2s ease;
     text-decoration: none;
     letter-spacing: 1px;
 }
 
 .button-wrapper:has(.download-cv-btn) {
     border-color: var(--primary-color);
+    background: var(--primary-color);
+    box-shadow: 5px 5px 0 0 rgba(191,255,0,0.35);
 }
 
-.button-wrapper:hover .download-cv-btn {
-    transform: translate(-2px, -2px);
+.button-wrapper:has(.download-cv-btn):hover {
+    box-shadow: 7px 7px 0 0 rgba(191,255,0,0.35);
 }
 
 .button-wrapper button {
@@ -429,17 +444,33 @@ main {
     font-weight: 800;
     border: none;
     cursor: pointer;
-    transform: translate(-6px, -6px);
-    transition: transform 0.2s ease;
+    transition: background 0.2s ease;
+    min-width: 0;
 }
 
-.button-wrapper:hover button {
-    transform: translate(-2px, -2px);
+.button-wrapper.primary {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    box-shadow: 5px 5px 0 0 rgba(191,255,0,0.4);
+}
+
+.button-wrapper.primary:hover {
+    box-shadow: 7px 7px 0 0 rgba(191,255,0,0.4);
 }
 
 .button-wrapper.primary button {
     background: var(--primary-color);
     color: #000;
+}
+
+.button-wrapper.secondary {
+    border-color: #444;
+    background: #444;
+    box-shadow: 5px 5px 0 0 rgba(255,255,255,0.12);
+}
+
+.button-wrapper.secondary:hover {
+    box-shadow: 7px 7px 0 0 rgba(255,255,255,0.12);
 }
 
 .button-wrapper.secondary button {
@@ -1518,6 +1549,7 @@ main {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.8s ease;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
@@ -1602,7 +1634,6 @@ main {
 
 /* Social Links */
 .contact-social {
-    margin-top: auto;
     padding-top: 1.5rem;
     border-top: 1px solid var(--contact-border-color);
 }
@@ -2407,6 +2438,50 @@ main {
     transform: translateY(-5px);
     background: var(--primary-dark);
     box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+/* ===== Live Demo Button (Project Detail Page) ===== */
+.live-demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 2rem;
+    background: var(--primary-color);
+    color: #000;
+    border: 2px solid var(--primary-color);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 0 rgba(191,255,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    margin: 0 auto 2rem;
+}
+
+.live-demo-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 rgba(191,255,0,0.6);
+    background: #d4ff1a;
+}
+
+.live-demo-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 0 rgba(191,255,0,0.4);
+}
+
+[data-theme="light"] .live-demo-btn {
+    background: #5a7a00;
+    border-color: #5a7a00;
+    color: #fff;
+    box-shadow: 4px 4px 0 0 rgba(90,122,0,0.45);
+}
+
+[data-theme="light"] .live-demo-btn:hover {
+    background: #4a6600;
+    box-shadow: 6px 6px 0 0 rgba(90,122,0,0.55);
 }
 
 /* ========== Light Mode Overrides ========== */
