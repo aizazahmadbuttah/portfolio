@@ -42,6 +42,17 @@ function ProjectPage() {
 
                     <p className="project-description-large">{project.description}</p>
 
+                    {project.liveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cta-button"
+                        >
+                            View Live Demo
+                        </a>
+                    )}
+
                     <div className="project-tech-large">
                         {project.tech.map((tech, idx) => (
                             <span key={idx} className="tech-tag large-tag">{tech}</span>

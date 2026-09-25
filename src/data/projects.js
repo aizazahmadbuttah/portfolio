@@ -24,6 +24,54 @@ import fypAccuracy from '../assets/FYP/model_accuracy.jpg'
 
 export const projectsData = [
     {
+        id: "citycare-clinic",
+        title: "CITYCARE CLINIC WEBSITE",
+        badge: "Frontend",
+        liveUrl: "https://muse.ai/s/citycare-clinic-mu6cmugeyrxk",
+        description: "Modern responsive website for a medical clinic — services, doctor profiles, patient testimonials, and appointment booking via WhatsApp.",
+        highlights: [
+            "Complete multi-section site: hero, services, doctors, testimonials, timings, and location",
+            "Appointment request form with validation that composes a WhatsApp message — no backend needed",
+            "Fully responsive with scroll animations and a custom teal-and-white design system"
+        ],
+        tech: ["HTML", "CSS", "JavaScript"],
+        images: [
+            { src: citycareClinic, alt: "CityCare Clinic Website" }
+        ]
+    },
+    {
+        id: "spice-route-kitchen",
+        title: "SPICE ROUTE KITCHEN WEBSITE",
+        badge: "Frontend",
+        liveUrl: "https://muse.ai/s/spice-route-kitchen-dc6cmucoxmxrl",
+        description: "Elegant restaurant website with categorized menu, gallery, testimonials, and WhatsApp table booking — designed to turn visitors into diners.",
+        highlights: [
+            "Interactive menu with category filtering, PKR pricing, and chef's specials section",
+            "Gallery, testimonials, location with hours, and a WhatsApp reservation flow",
+            "Dark premium aesthetic with scroll-triggered animations, fully mobile-responsive"
+        ],
+        tech: ["HTML", "CSS", "JavaScript"],
+        images: [
+            { src: spiceRouteKitchen, alt: "Spice Route Kitchen Website" }
+        ]
+    },
+    {
+        id: "primenest-realty",
+        title: "PRIMENEST REALTY WEBSITE",
+        badge: "Frontend",
+        liveUrl: "https://muse.ai/s/primenest-realty-axj6cmu1xnqxhxs",
+        description: "Real estate website with property listings, search filters, agent profiles, and a WhatsApp inquiry generator for an Islamabad agency.",
+        highlights: [
+            "Six property listings with PKR prices, filterable by location, type, and budget",
+            "Inquiry form that generates a ready-to-send WhatsApp message per property",
+            "Light/dark theme toggle, services and agents sections, fully responsive"
+        ],
+        tech: ["HTML", "CSS", "JavaScript"],
+        images: [
+            { src: primenestRealty, alt: "PrimeNest Realty Website" }
+        ]
+    },
+    {
         id: "aquaflow",
         title: "AQUAFLOW POS",
         badge: "Full Stack",
@@ -117,53 +165,5 @@ export const projectsData = [
         ],
         tech: ["React.js", "Firebase", "Context API"],
         images: []
-    },
-    {
-        id: "citycare-clinic",
-        title: "CITYCARE CLINIC WEBSITE",
-        badge: "Frontend",
-        liveUrl: "https://muse.ai/s/citycare-clinic-mu6cmugeyrxk",
-        description: "Modern responsive website for a medical clinic — services, doctor profiles, patient testimonials, and appointment booking via WhatsApp.",
-        highlights: [
-            "Complete multi-section site: hero, services, doctors, testimonials, timings, and location",
-            "Appointment request form with validation that composes a WhatsApp message — no backend needed",
-            "Fully responsive with scroll animations and a custom teal-and-white design system"
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        images: [
-            { src: citycareClinic, alt: "CityCare Clinic Website" }
-        ]
-    },
-    {
-        id: "spice-route-kitchen",
-        title: "SPICE ROUTE KITCHEN WEBSITE",
-        badge: "Frontend",
-        liveUrl: "https://muse.ai/s/spice-route-kitchen-dc6cmucoxmxrl",
-        description: "Elegant restaurant website with categorized menu, gallery, testimonials, and WhatsApp table booking — designed to turn visitors into diners.",
-        highlights: [
-            "Interactive menu with category filtering, PKR pricing, and chef's specials section",
-            "Gallery, testimonials, location with hours, and a WhatsApp reservation flow",
-            "Dark premium aesthetic with scroll-triggered animations, fully mobile-responsive"
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        images: [
-            { src: spiceRouteKitchen, alt: "Spice Route Kitchen Website" }
-        ]
-    },
-    {
-        id: "primenest-realty",
-        title: "PRIMENEST REALTY WEBSITE",
-        badge: "Frontend",
-        liveUrl: "https://muse.ai/s/primenest-realty-axj6cmu1xnqxhxs",
-        description: "Real estate website with property listings, search filters, agent profiles, and a WhatsApp inquiry generator for an Islamabad agency.",
-        highlights: [
-            "Six property listings with PKR prices, filterable by location, type, and budget",
-            "Inquiry form that generates a ready-to-send WhatsApp message per property",
-            "Light/dark theme toggle, services and agents sections, fully responsive"
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        images: [
-            { src: primenestRealty, alt: "PrimeNest Realty Website" }
-        ]
     }
 ];
