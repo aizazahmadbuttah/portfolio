@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-bg: #0a0f1c;
+  --color-card: #131b2f;
+  --color-muted: #94a3b8;
+  --color-accent: #3b82f6;
+  --shadow-glow: 0 0 40px -10px rgb(59 130 246 / 0.45);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgb(59 130 246 / 0.35);
+}
+
+/* Shared surface: card colour + 1px hairline border + faint top-edge light */
+@utility surface {
+  background-color: var(--color-card);
+  border: 1px solid rgb(255 255 255 / 0.05);
+  box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.04);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(180deg, #fff 30%, rgb(148 163 184) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

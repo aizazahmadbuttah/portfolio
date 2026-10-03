@@ -1,13 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
-import './index.css'
-import App from './App.jsx'
+import Portfolio from './refined/Portfolio.jsx'
 
+// Previous portfolio (HashRouter + App.jsx + App.css) is left intact in src/;
+// to restore it, revert this file via git.
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <HashRouter>
-            <App />
-        </HashRouter>
+        <Portfolio />
     </StrictMode>,
 )
